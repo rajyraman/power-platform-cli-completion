@@ -9,10 +9,10 @@
 @{
 
     # Script module or binary module file associated with this manifest.
-    RootModule           = 'PowerPlatformCLIIntellisense.psm1'
+    RootModule           = 'PowerPlatformCLIAutoComplete.psm1'
 
     # Version number of this module.
-    ModuleVersion        = '0.0.1'
+    ModuleVersion        = '0.0.3'
 
     # Supported PSEditions
     CompatiblePSEditions = 'Desktop', 'Core'
@@ -95,7 +95,7 @@
         PSData = @{
 
             # Tags applied to this module. These help with module discovery in online galleries.
-            Tags       = @('powerapps', 'power platform', 'cli', 'intellisense')
+            Tags       = @('power-apps', 'pac', 'power-platform', 'cli', 'autocomplete')
 
             # A URL to the license for this module.
             LicenseUri = 'https://opensource.org/licenses/MIT'
@@ -110,7 +110,7 @@
             # ReleaseNotes = ''
 
             # Prerelease string of this module
-            # Prerelease = ''
+            Prerelease = 'alpha'
 
             # Flag to indicate whether the module requires explicit user acceptance for install/update/save
             # RequireLicenseAcceptance = $false
@@ -123,7 +123,7 @@
     } # End of PrivateData hashtable
 
     # HelpInfo URI of this module
-    # HelpInfoURI = ''
+    HelpInfoURI          = 'https://github.com/rajyraman/power-platform-cli-completion/blob/main/README.md'
 
     # Default prefix for commands exported from this module. Override the default prefix using Import-Module -Prefix.
     # DefaultCommandPrefix = ''
