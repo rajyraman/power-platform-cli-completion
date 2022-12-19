@@ -26,6 +26,10 @@
                     {
                         "name": "--environment",
                         "description": "List all environments that contain given string in their name or id."
+                    },
+                    {
+                        "name": "--json",
+                        "description": "Show results in raw JSON format."
                     }
                 ]
             },
@@ -567,6 +571,10 @@
                     {
                         "name": "--environment",
                         "description": "The target Environment ID or URL.  Default value is the environment of your currently active Dataverse Auth Profile."
+                    },
+                    {
+                        "name": "--json",
+                        "description": "Show results in raw JSON format."
                     }
                 ]
             },
@@ -803,7 +811,12 @@
             {
                 "name": "who",
                 "description": "Displays information about the current Dataverse Organization.",
-                "params": []
+                "params": [
+                    {
+                        "name": "--json",
+                        "description": "Show results in raw JSON format."
+                    }
+                ]
             },
             {
                 "name": "select",
@@ -1521,6 +1534,10 @@
                     {
                         "name": "--environment",
                         "description": "The target Environment ID or URL. Default value is the environment of your currently active Dataverse Auth Profile."
+                    },
+                    {
+                        "name": "--json",
+                        "description": "Show results in raw JSON format."
                     }
                 ]
             },
@@ -1831,6 +1848,26 @@
                         "description": "The target Environment ID or URL.  Default value is the environment of your currently active Dataverse Auth Profile."
                     }
                 ]
+            }
+        ]
+    },
+    {
+        "name": "install",
+        "description": "Install 'latest' or a specified version of the Microsoft PowerApps CLI",
+        "subcommands": [
+            {
+                "name": "latest",
+                "description": "Install latest version of the Microsoft PowerApps CLI"
+            }
+        ]
+    },
+    {
+        "name": "use",
+        "description": "Use 'latest' or a specified version of the Microsoft PowerApps CLI",
+        "subcommands": [
+            {
+                "name": "latest",
+                "description": "Use latest version Microsoft PowerApps CLI"
             }
         ]
     }
