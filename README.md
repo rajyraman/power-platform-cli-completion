@@ -29,9 +29,9 @@ Below is a sample PowerShell profile that I use.
 ```powershell
 Import-Module posh-git
 Import-Module oh-my-posh
-Import-Module DockerCompletion
 Set-Theme paradox
 Import-Module PSReadLine
+Import-Module Terminal-Icons
 Set-PSReadLineOption -PredictionSource HistoryAndPlugin
 Set-PSReadLineOption -PredictionViewStyle ListView
 Import-Module -Name PowerPlatformCLIAutoComplete

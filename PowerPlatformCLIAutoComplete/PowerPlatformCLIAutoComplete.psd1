@@ -12,7 +12,7 @@
     RootModule           = 'PowerPlatformCLIAutoComplete.psm1'
 
     # Version number of this module.
-    ModuleVersion        = '0.0.4'
+    ModuleVersion        = '1.0.0'
 
     # Supported PSEditions
     CompatiblePSEditions = 'Desktop', 'Core'
@@ -107,14 +107,12 @@
             # IconUri = ''
 
             # ReleaseNotes of this module
-            ReleaseNotes = "v0.0.4
+            ReleaseNotes = "v1.0.0
             ------
-            1. Added --json parameter for admin list, connector list, org who and solution list
-            2. Add pac install and pac use commands
-            3. Bump to beta"
+            Use JSON file that comes with pac. Use JSON file from 1.25.5"
 
             # Prerelease string of this module
-            Prerelease   = 'beta'
+            #Prerelease   = 'beta'
 
             # Flag to indicate whether the module requires explicit user acceptance for install/update/save
             # RequireLicenseAcceptance = $false
