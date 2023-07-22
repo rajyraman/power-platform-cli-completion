@@ -1,11 +1,11 @@
 # Power Platform CLI - Code Completion
 
-Add Code Completion on Power Platform CLI using PowerShell. [PAC JSON config file](./PowerPlatformCLIAutoComplete/pac.json) correct as of Power Platform CLI version 1.21.4+g4869036.
+Add Code Completion on Power Platform CLI using PowerShell. [PAC JSON config file](./PowerPlatformCLIAutoComplete/pac.doc.json) is from pac release [1.25.5](https://www.nuget.org/packages/Microsoft.PowerApps.CLI/1.25.5) releases 23-July-2023.
 
 # Installation
 
 ```powershell
-Install-Module -Name PowerPlatformCLIAutoComplete -AllowPrerelease; Import-Module -Name PowerPlatformCLIAutoComplete;
+Install-Module -Name PowerPlatformCLIAutoComplete; Import-Module -Name PowerPlatformCLIAutoComplete;
 ```
 If you have organization restrictions for installing PowerShell modules globally, install it in the scope of the current user like below.
 
