@@ -12,7 +12,7 @@
     RootModule           = 'PowerPlatformCLIAutoComplete.psm1'
 
     # Version number of this module.
-    ModuleVersion        = '1.0.0'
+    ModuleVersion        = '1.0.1'
 
     # Supported PSEditions
     CompatiblePSEditions = 'Desktop', 'Core'
@@ -107,7 +107,12 @@
             # IconUri = ''
 
             # ReleaseNotes of this module
-            ReleaseNotes = "v1.0.0
+            ReleaseNotes = "
+            v1.0.1
+            ------
+            Use JSON file that comes with pac. Use JSON file from 1.26.5
+
+            v1.0.0
             ------
             Use JSON file that comes with pac. Use JSON file from 1.25.5"
 

@@ -722,7 +722,7 @@
           {
             "name": "--user",
             "alias": "-u",
-            "help": "Object ID or user principal name (UPN) of Azure Active Directory user to be assigned to the environment or Application ID if assigning an Application User.",
+            "help": "Object ID or user principal name (UPN) of Microsoft Entra ID user to be assigned to the environment or Application ID if assigning an Application User.",
             "deprecated": null,
             "deprecatedArgumentReplacement": null,
             "isRequired": true,
@@ -794,7 +794,7 @@
           {
             "name": "--group",
             "alias": "-g",
-            "help": "Azure Active Directory object ID of group to assign to target Dataverse environment.",
+            "help": "Microsoft Entra ID object ID of group to assign to target Dataverse environment.",
             "deprecated": null,
             "deprecatedArgumentReplacement": null,
             "isRequired": true,
@@ -882,15 +882,26 @@
       },
       {
         "name": "create-service-principal",
-        "help": "Add Microsoft Azure Active Directory application and associated application user to the Dataverse environment.",
+        "help": "Add Microsoft Entra ID application and associated application user to the Dataverse environment.",
         "arguments": [
           {
             "name": "--environment",
             "alias": "-env",
-            "help": "ID or URL of the environment to add an application user to.",
+            "help": "Environment (ID, org ID, url, unique name, or partial name).",
             "deprecated": null,
             "deprecatedArgumentReplacement": null,
-            "isRequired": true,
+            "isRequired": false,
+            "isSwitch": false,
+            "isUri": false,
+            "allowMultipleValues": false
+          },
+          {
+            "name": "--name",
+            "alias": "-n",
+            "help": "Application name to create in Entra ID.",
+            "deprecated": null,
+            "deprecatedArgumentReplacement": null,
+            "isRequired": false,
             "isSwitch": false,
             "isUri": false,
             "allowMultipleValues": false
@@ -904,6 +915,134 @@
             "isRequired": false,
             "isSwitch": false,
             "isUri": false,
+            "allowMultipleValues": false
+          }
+        ]
+      },
+      {
+        "name": "list-service-principal",
+        "help": "List Microsoft Entra ID applications which have access to Dataverse.",
+        "arguments": [
+          {
+            "name": "--filter",
+            "alias": "-f",
+            "help": "Application name 'starts with' filter.",
+            "deprecated": null,
+            "deprecatedArgumentReplacement": null,
+            "isRequired": false,
+            "isSwitch": false,
+            "isUri": false,
+            "allowMultipleValues": false
+          },
+          {
+            "name": "--max",
+            "alias": "-m",
+            "help": "Max number of applications to show. Default: 20",
+            "deprecated": null,
+            "deprecatedArgumentReplacement": null,
+            "isRequired": false,
+            "isSwitch": false,
+            "isUri": false,
+            "allowMultipleValues": false
+          }
+        ]
+      },
+      {
+        "name": "set-governance-config",
+        "help": "Enable, disable, and edit managed environments.",
+        "arguments": [
+          {
+            "name": "--environment",
+            "alias": "-env",
+            "help": "URL or ID of the environment for which managed environments need to be enabled, disabled or edited.",
+            "deprecated": null,
+            "deprecatedArgumentReplacement": null,
+            "isRequired": true,
+            "isSwitch": false,
+            "isUri": false,
+            "minLength": 1,
+            "maxLength": 16384,
+            "allowMultipleValues": false
+          },
+          {
+            "name": "--protection-level",
+            "alias": "-pl",
+            "help": "Set protection level : 'Standard' to enable managed environments, 'Basic' to disable managed environments.",
+            "deprecated": null,
+            "deprecatedArgumentReplacement": null,
+            "isRequired": true,
+            "isSwitch": false,
+            "isUri": false,
+            "listOfValues": "Basic, Standard",
+            "listOfDisplayValues": "Basic, Standard",
+            "allowMultipleValues": false
+          },
+          {
+            "name": "--disable-group-sharing",
+            "alias": "-dgs",
+            "help": "Disable group sharing.",
+            "deprecated": null,
+            "deprecatedArgumentReplacement": null,
+            "isRequired": false,
+            "isSwitch": true,
+            "isUri": false,
+            "allowMultipleValues": false
+          },
+          {
+            "name": "--exclude-analysis",
+            "alias": "-ea",
+            "help": "Exclude usage insights for the environment from the weekly digest email.",
+            "deprecated": null,
+            "deprecatedArgumentReplacement": null,
+            "isRequired": false,
+            "isSwitch": true,
+            "isUri": false,
+            "allowMultipleValues": false
+          },
+          {
+            "name": "--include-insights",
+            "alias": "-ii",
+            "help": "Include insights in the Power Platform Admin Center homepage cards.",
+            "deprecated": null,
+            "deprecatedArgumentReplacement": null,
+            "isRequired": false,
+            "isSwitch": true,
+            "isUri": false,
+            "allowMultipleValues": false
+          },
+          {
+            "name": "--limit-sharing-mode",
+            "alias": "-lsm",
+            "help": "Limit sharing mode.",
+            "deprecated": null,
+            "deprecatedArgumentReplacement": null,
+            "isRequired": false,
+            "isSwitch": false,
+            "isUri": false,
+            "allowMultipleValues": false
+          },
+          {
+            "name": "--max-limit-user-sharing",
+            "alias": "-ml",
+            "help": "If group sharing is disabled, specify the number of people that makers can share canvas apps with.",
+            "deprecated": null,
+            "deprecatedArgumentReplacement": null,
+            "isRequired": false,
+            "isSwitch": false,
+            "isUri": false,
+            "allowMultipleValues": false
+          },
+          {
+            "name": "--solution-checker-mode",
+            "alias": "-scm",
+            "help": "Solution checker validation mode.",
+            "deprecated": null,
+            "deprecatedArgumentReplacement": null,
+            "isRequired": false,
+            "isSwitch": false,
+            "isUri": false,
+            "listOfValues": "none, warn, block",
+            "listOfDisplayValues": "none, warn, block",
             "allowMultipleValues": false
           }
         ]
@@ -1080,7 +1219,7 @@
           {
             "name": "--username",
             "alias": "-un",
-            "help": "Optional: The username to authenticate with; shows Azure Active Directory dialog if not specified.",
+            "help": "Optional: The username to authenticate with; shows Microsoft Entra ID dialog if not specified.",
             "deprecated": null,
             "deprecatedArgumentReplacement": null,
             "isRequired": false,
@@ -1170,7 +1309,7 @@
           {
             "name": "--deviceCode",
             "alias": "-dc",
-            "help": "Use the Azure Active Directory Device Code flow for interactive sign-in.",
+            "help": "Use the Microsoft Entra ID Device Code flow for interactive sign-in.",
             "deprecated": null,
             "deprecatedArgumentReplacement": null,
             "isRequired": false,
@@ -2080,14 +2219,34 @@
       {
         "name": "predict",
         "help": "Sends text or prompt to AI Model",
+        "argumentRelations": [
+          {
+            "RelationType": "MutuallyExclusive",
+            "argument1": "--model-id",
+            "argument2": "--model-name",
+            "argument3": null,
+            "areSwitchArguments": false
+          }
+        ],
         "arguments": [
           {
             "name": "--model-id",
-            "alias": "-m",
+            "alias": "-id",
             "help": "AI Builder model Id",
             "deprecated": null,
             "deprecatedArgumentReplacement": null,
-            "isRequired": true,
+            "isRequired": false,
+            "isSwitch": false,
+            "isUri": false,
+            "allowMultipleValues": false
+          },
+          {
+            "name": "--model-name",
+            "alias": "-n",
+            "help": "Full or partial AI Model name",
+            "deprecated": null,
+            "deprecatedArgumentReplacement": null,
+            "isRequired": false,
             "isSwitch": false,
             "isUri": false,
             "allowMultipleValues": false
@@ -3138,6 +3297,23 @@
             "allowMultipleValues": false
           }
         ]
+      },
+      {
+        "name": "bootstrap-migrate",
+        "help": "Migrates HTML code from bootstrap V3 to V5.",
+        "arguments": [
+          {
+            "name": "--path",
+            "alias": "-p",
+            "help": "Path of website content.",
+            "deprecated": null,
+            "deprecatedArgumentReplacement": null,
+            "isRequired": true,
+            "isSwitch": false,
+            "isUri": false,
+            "allowMultipleValues": false
+          }
+        ]
       }
     ]
   },
@@ -3261,7 +3437,7 @@
           {
             "name": "--force-import",
             "alias": "-f",
-            "help": "Force a full update of the control",
+            "help": "Force a full update of the control as part of a temporary solution",
             "deprecated": null,
             "deprecatedArgumentReplacement": null,
             "isRequired": false,
@@ -3273,6 +3449,17 @@
             "name": "--interactive",
             "alias": "-i",
             "help": "Indicates that actions in the build are allowed to interact with the user. Don't use this argument in an automated scenario where interactivity is not expected.",
+            "deprecated": null,
+            "deprecatedArgumentReplacement": null,
+            "isRequired": false,
+            "isSwitch": true,
+            "isUri": false,
+            "allowMultipleValues": false
+          },
+          {
+            "name": "--incremental",
+            "alias": "-inc",
+            "help": "Pushes only files which are diifferent using entity updates.",
             "deprecated": null,
             "deprecatedArgumentReplacement": null,
             "isRequired": false,
@@ -4916,6 +5103,75 @@
       {
         "name": "status",
         "help": "Show the current status of telemetry."
+      }
+    ]
+  },
+  {
+    "name": "tests",
+    "help": "(Preview) Execution of automated tests for a Power App",
+    "verbs": [
+      {
+        "name": "run",
+        "help": "(Preview) Execute tests defined in a Test Plan file",
+        "arguments": [
+          {
+            "name": "--test-plan-file",
+            "alias": "-test",
+            "help": "Path to the Test Plan file",
+            "deprecated": null,
+            "deprecatedArgumentReplacement": null,
+            "isRequired": true,
+            "isSwitch": false,
+            "isUri": false,
+            "allowMultipleValues": false
+          },
+          {
+            "name": "--environment-id",
+            "alias": "-env",
+            "help": "Environment ID for the app to be tested.",
+            "deprecated": null,
+            "deprecatedArgumentReplacement": null,
+            "isRequired": true,
+            "isSwitch": false,
+            "isUri": false,
+            "allowMultipleValues": false
+          },
+          {
+            "name": "--tenant",
+            "alias": "-t",
+            "help": "Tenant ID for the app being tested",
+            "deprecated": null,
+            "deprecatedArgumentReplacement": null,
+            "isRequired": true,
+            "isSwitch": false,
+            "isUri": false,
+            "allowMultipleValues": false
+          },
+          {
+            "name": "--output-directory",
+            "alias": "-o",
+            "help": "Path to save test output and logs",
+            "deprecated": null,
+            "deprecatedArgumentReplacement": null,
+            "isRequired": false,
+            "isSwitch": false,
+            "isUri": false,
+            "allowMultipleValues": false
+          },
+          {
+            "name": "--domain",
+            "alias": "-d",
+            "help": "The player domain for the app being tested",
+            "deprecated": null,
+            "deprecatedArgumentReplacement": null,
+            "isRequired": false,
+            "isSwitch": false,
+            "isUri": false,
+            "listOfValues": "Public, Test, Preprod, Preview, UsGov, UsGovHigh, UsGovDoD, Mooncake",
+            "listOfDisplayValues": "Public, Preview, UsGov, UsGovHigh, UsGovDoD, Mooncake",
+            "allowMultipleValues": false
+          }
+        ]
       }
     ]
   },
