@@ -28,13 +28,13 @@ Below is a sample PowerShell profile that I use.
 
 ```powershell
 Import-Module posh-git
-Import-Module oh-my-posh
-Set-Theme paradox
 Import-Module PSReadLine
 Import-Module Terminal-Icons
 Set-PSReadLineOption -PredictionSource HistoryAndPlugin
 Set-PSReadLineOption -PredictionViewStyle ListView
 Import-Module -Name PowerPlatformCLIAutoComplete
+Import-Module F7History
+oh-my-posh init pwsh --config "$env:POSH_THEMES_PATH/cloud-native-azure.omp.json" | Invoke-Expression
 ```
 
 This will ensure that you will get auto-complete for Power Platform CLI everytime your start a new PowerShell terminal.
