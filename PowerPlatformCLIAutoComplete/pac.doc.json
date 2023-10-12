@@ -655,7 +655,7 @@
           {
             "name": "--type",
             "alias": "-t",
-            "help": null,
+            "help": "",
             "deprecated": null,
             "deprecatedArgumentReplacement": null,
             "isRequired": false,
@@ -1043,6 +1043,40 @@
             "isUri": false,
             "listOfValues": "none, warn, block",
             "listOfDisplayValues": "none, warn, block",
+            "allowMultipleValues": false
+          }
+        ]
+      },
+      {
+        "name": "list-tenant-settings",
+        "help": "List tenant settings.",
+        "arguments": [
+          {
+            "name": "--settings-file",
+            "alias": "-s",
+            "help": "The .json file to output tenant settings.",
+            "deprecated": null,
+            "deprecatedArgumentReplacement": null,
+            "isRequired": false,
+            "isSwitch": false,
+            "isUri": false,
+            "allowMultipleValues": false
+          }
+        ]
+      },
+      {
+        "name": "update-tenant-settings",
+        "help": "Update tenant settings.",
+        "arguments": [
+          {
+            "name": "--settings-file",
+            "alias": "-s",
+            "help": "The .json file with tenant settings.",
+            "deprecated": null,
+            "deprecatedArgumentReplacement": null,
+            "isRequired": true,
+            "isSwitch": false,
+            "isUri": false,
             "allowMultipleValues": false
           }
         ]
@@ -1835,6 +1869,179 @@
     ]
   },
   {
+    "name": "connection",
+    "help": "(Preview) Commands for working with Dataverse connection.",
+    "verbs": [
+      {
+        "name": "create",
+        "help": "(Preview) Create new Dataverse connection.",
+        "arguments": [
+          {
+            "name": "--tenant-id",
+            "alias": "-t",
+            "help": "Tenant Id",
+            "deprecated": null,
+            "deprecatedArgumentReplacement": null,
+            "isRequired": true,
+            "isSwitch": false,
+            "isUri": false,
+            "allowMultipleValues": false
+          },
+          {
+            "name": "--name",
+            "alias": "-n",
+            "help": "Connection name.",
+            "deprecated": null,
+            "deprecatedArgumentReplacement": null,
+            "isRequired": true,
+            "isSwitch": false,
+            "isUri": false,
+            "allowMultipleValues": false
+          },
+          {
+            "name": "--application-id",
+            "alias": "-a",
+            "help": "Application Id",
+            "deprecated": null,
+            "deprecatedArgumentReplacement": null,
+            "isRequired": true,
+            "isSwitch": false,
+            "isUri": false,
+            "allowMultipleValues": false
+          },
+          {
+            "name": "--client-secret",
+            "alias": "-cs",
+            "help": "Client Secret",
+            "deprecated": null,
+            "deprecatedArgumentReplacement": null,
+            "isRequired": true,
+            "isSwitch": false,
+            "isUri": false,
+            "allowMultipleValues": false
+          },
+          {
+            "name": "--environment",
+            "alias": "-env",
+            "help": "Environment (ID, org ID, url, unique name, or partial name).",
+            "deprecated": null,
+            "deprecatedArgumentReplacement": null,
+            "isRequired": false,
+            "isSwitch": false,
+            "isUri": false,
+            "allowMultipleValues": false
+          }
+        ]
+      },
+      {
+        "name": "delete",
+        "help": "(Preview) Delete Dataverse connection.",
+        "arguments": [
+          {
+            "name": "--connection-id",
+            "alias": "-id",
+            "help": "Connection Id.",
+            "deprecated": null,
+            "deprecatedArgumentReplacement": null,
+            "isRequired": true,
+            "isSwitch": false,
+            "isUri": false,
+            "allowMultipleValues": false
+          },
+          {
+            "name": "--environment",
+            "alias": "-env",
+            "help": "Environment (ID, org ID, url, unique name, or partial name).",
+            "deprecated": null,
+            "deprecatedArgumentReplacement": null,
+            "isRequired": false,
+            "isSwitch": false,
+            "isUri": false,
+            "allowMultipleValues": false
+          }
+        ]
+      },
+      {
+        "name": "list",
+        "help": "(Preview) List all Connections.",
+        "arguments": [
+          {
+            "name": "--environment",
+            "alias": "-env",
+            "help": "Environment (ID, org ID, url, unique name, or partial name).",
+            "deprecated": null,
+            "deprecatedArgumentReplacement": null,
+            "isRequired": false,
+            "isSwitch": false,
+            "isUri": false,
+            "allowMultipleValues": false
+          }
+        ]
+      },
+      {
+        "name": "update",
+        "help": "(Preview) Update Dataverse connection.",
+        "arguments": [
+          {
+            "name": "--tenant-id",
+            "alias": "-t",
+            "help": "Tenant Id",
+            "deprecated": null,
+            "deprecatedArgumentReplacement": null,
+            "isRequired": true,
+            "isSwitch": false,
+            "isUri": false,
+            "allowMultipleValues": false
+          },
+          {
+            "name": "--connection-id",
+            "alias": "-id",
+            "help": "Connection Id.",
+            "deprecated": null,
+            "deprecatedArgumentReplacement": null,
+            "isRequired": true,
+            "isSwitch": false,
+            "isUri": false,
+            "allowMultipleValues": false
+          },
+          {
+            "name": "--application-id",
+            "alias": "-a",
+            "help": "Application Id",
+            "deprecated": null,
+            "deprecatedArgumentReplacement": null,
+            "isRequired": true,
+            "isSwitch": false,
+            "isUri": false,
+            "allowMultipleValues": false
+          },
+          {
+            "name": "--client-secret",
+            "alias": "-cs",
+            "help": "Client Secret",
+            "deprecated": null,
+            "deprecatedArgumentReplacement": null,
+            "isRequired": true,
+            "isSwitch": false,
+            "isUri": false,
+            "allowMultipleValues": false
+          },
+          {
+            "name": "--environment",
+            "alias": "-env",
+            "help": "Environment (ID, org ID, url, unique name, or partial name).",
+            "deprecated": null,
+            "deprecatedArgumentReplacement": null,
+            "isRequired": false,
+            "isSwitch": false,
+            "isUri": false,
+            "allowMultipleValues": false
+          }
+        ]
+      }
+    ]
+  },
+  {
     "name": "connector",
     "help": "(Preview) Commands for working with Power Platform Connectors",
     "verbs": [
@@ -2210,7 +2417,7 @@
   },
   {
     "name": "copilot",
-    "help": "(Preview) Tools and utilities for copilot scenarios",
+    "help": "Tools and utilities for copilot scenarios",
     "verbs": [
       {
         "name": "list",
@@ -3156,168 +3363,6 @@
     ]
   },
   {
-    "name": "paportal",
-    "help": "Commands for working with Power Pages website.",
-    "verbs": [
-      {
-        "name": "list",
-        "help": "List all Power Pages websites from the current Dataverse environment.",
-        "arguments": [
-          {
-            "name": "--verbose",
-            "alias": "-v",
-            "help": "Enables verbose mode to provide more details.",
-            "deprecated": null,
-            "deprecatedArgumentReplacement": null,
-            "isRequired": false,
-            "isSwitch": true,
-            "isUri": false,
-            "allowMultipleValues": false
-          }
-        ]
-      },
-      {
-        "name": "download",
-        "help": "Download Power Pages website content from the current Dataverse environment.",
-        "arguments": [
-          {
-            "name": "--path",
-            "alias": "-p",
-            "help": "Path where the Power Pages website content is downloaded",
-            "deprecated": null,
-            "deprecatedArgumentReplacement": null,
-            "isRequired": true,
-            "isSwitch": false,
-            "isUri": false,
-            "allowMultipleValues": false
-          },
-          {
-            "name": "--webSiteId",
-            "alias": "-id",
-            "help": "Power Pages website ID to download",
-            "deprecated": null,
-            "deprecatedArgumentReplacement": null,
-            "isRequired": true,
-            "isSwitch": false,
-            "isUri": false,
-            "allowMultipleValues": false
-          },
-          {
-            "name": "--includeEntities",
-            "alias": "-ie",
-            "help": "Download only the entities specified for this argument using comma separated entity logical names.",
-            "deprecated": null,
-            "deprecatedArgumentReplacement": null,
-            "isRequired": false,
-            "isSwitch": false,
-            "isUri": false,
-            "allowMultipleValues": false
-          },
-          {
-            "name": "--excludeEntities",
-            "alias": "-xe",
-            "help": "Comma separated list of entity logical names to exclude downloading",
-            "deprecated": null,
-            "deprecatedArgumentReplacement": null,
-            "isRequired": false,
-            "isSwitch": false,
-            "isUri": false,
-            "allowMultipleValues": false
-          },
-          {
-            "name": "--overwrite",
-            "alias": "-o",
-            "help": "Power Pages website content to overwrite",
-            "deprecated": null,
-            "deprecatedArgumentReplacement": null,
-            "isRequired": false,
-            "isSwitch": true,
-            "isUri": false,
-            "allowMultipleValues": false
-          },
-          {
-            "name": "--modelVersion",
-            "alias": "-mv",
-            "help": "Power Pages website data model version to download.",
-            "deprecated": null,
-            "deprecatedArgumentReplacement": null,
-            "isRequired": false,
-            "isSwitch": false,
-            "isUri": false,
-            "allowMultipleValues": false
-          }
-        ]
-      },
-      {
-        "name": "upload",
-        "help": "Upload Power Pages website content to current Dataverse environment.",
-        "arguments": [
-          {
-            "name": "--path",
-            "alias": "-p",
-            "help": "Path from where the Power Pages website content is uploaded.",
-            "deprecated": null,
-            "deprecatedArgumentReplacement": null,
-            "isRequired": true,
-            "isSwitch": false,
-            "isUri": false,
-            "allowMultipleValues": false
-          },
-          {
-            "name": "--deploymentProfile",
-            "alias": "-dp",
-            "help": "Deployment profile name to be used. Defaults to 'default'",
-            "deprecated": null,
-            "deprecatedArgumentReplacement": null,
-            "isRequired": false,
-            "isSwitch": false,
-            "isUri": false,
-            "allowMultipleValues": false
-          },
-          {
-            "name": "--forceUploadAll",
-            "alias": "-f",
-            "help": "Upload all Power Pages website content to the current Dataverse environment.",
-            "deprecated": null,
-            "deprecatedArgumentReplacement": null,
-            "isRequired": false,
-            "isSwitch": true,
-            "isUri": false,
-            "allowMultipleValues": false
-          },
-          {
-            "name": "--modelVersion",
-            "alias": "-mv",
-            "help": "Power Pages website data model version to upload.",
-            "deprecated": null,
-            "deprecatedArgumentReplacement": null,
-            "isRequired": false,
-            "isSwitch": false,
-            "isUri": false,
-            "allowMultipleValues": false
-          }
-        ]
-      },
-      {
-        "name": "bootstrap-migrate",
-        "help": "Migrates HTML code from bootstrap V3 to V5.",
-        "arguments": [
-          {
-            "name": "--path",
-            "alias": "-p",
-            "help": "Path of website content.",
-            "deprecated": null,
-            "deprecatedArgumentReplacement": null,
-            "isRequired": true,
-            "isSwitch": false,
-            "isUri": false,
-            "allowMultipleValues": false
-          }
-        ]
-      }
-    ]
-  },
-  {
     "name": "pcf",
     "help": "Commands for working with Power Apps component framework projects",
     "verbs": [
@@ -3752,6 +3797,168 @@
             "deprecated": null,
             "deprecatedArgumentReplacement": null,
             "isRequired": false,
+            "isSwitch": false,
+            "isUri": false,
+            "allowMultipleValues": false
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "name": "powerpages",
+    "help": "Commands for working with Power Pages website.",
+    "verbs": [
+      {
+        "name": "list",
+        "help": "List all Power Pages websites from the current Dataverse environment.",
+        "arguments": [
+          {
+            "name": "--verbose",
+            "alias": "-v",
+            "help": "Enables verbose mode to provide more details.",
+            "deprecated": null,
+            "deprecatedArgumentReplacement": null,
+            "isRequired": false,
+            "isSwitch": true,
+            "isUri": false,
+            "allowMultipleValues": false
+          }
+        ]
+      },
+      {
+        "name": "download",
+        "help": "Download Power Pages website content from the current Dataverse environment.",
+        "arguments": [
+          {
+            "name": "--path",
+            "alias": "-p",
+            "help": "Path where the Power Pages website content is downloaded",
+            "deprecated": null,
+            "deprecatedArgumentReplacement": null,
+            "isRequired": true,
+            "isSwitch": false,
+            "isUri": false,
+            "allowMultipleValues": false
+          },
+          {
+            "name": "--webSiteId",
+            "alias": "-id",
+            "help": "Power Pages website ID to download",
+            "deprecated": null,
+            "deprecatedArgumentReplacement": null,
+            "isRequired": true,
+            "isSwitch": false,
+            "isUri": false,
+            "allowMultipleValues": false
+          },
+          {
+            "name": "--includeEntities",
+            "alias": "-ie",
+            "help": "Download only the entities specified for this argument using comma separated entity logical names.",
+            "deprecated": null,
+            "deprecatedArgumentReplacement": null,
+            "isRequired": false,
+            "isSwitch": false,
+            "isUri": false,
+            "allowMultipleValues": false
+          },
+          {
+            "name": "--excludeEntities",
+            "alias": "-xe",
+            "help": "Comma separated list of entity logical names to exclude downloading",
+            "deprecated": null,
+            "deprecatedArgumentReplacement": null,
+            "isRequired": false,
+            "isSwitch": false,
+            "isUri": false,
+            "allowMultipleValues": false
+          },
+          {
+            "name": "--overwrite",
+            "alias": "-o",
+            "help": "Power Pages website content to overwrite",
+            "deprecated": null,
+            "deprecatedArgumentReplacement": null,
+            "isRequired": false,
+            "isSwitch": true,
+            "isUri": false,
+            "allowMultipleValues": false
+          },
+          {
+            "name": "--modelVersion",
+            "alias": "-mv",
+            "help": "Power Pages website data model version to download.",
+            "deprecated": null,
+            "deprecatedArgumentReplacement": null,
+            "isRequired": false,
+            "isSwitch": false,
+            "isUri": false,
+            "allowMultipleValues": false
+          }
+        ]
+      },
+      {
+        "name": "upload",
+        "help": "Upload Power Pages website content to current Dataverse environment.",
+        "arguments": [
+          {
+            "name": "--path",
+            "alias": "-p",
+            "help": "Path from where the Power Pages website content is uploaded.",
+            "deprecated": null,
+            "deprecatedArgumentReplacement": null,
+            "isRequired": true,
+            "isSwitch": false,
+            "isUri": false,
+            "allowMultipleValues": false
+          },
+          {
+            "name": "--deploymentProfile",
+            "alias": "-dp",
+            "help": "Deployment profile name to be used. Defaults to 'default'",
+            "deprecated": null,
+            "deprecatedArgumentReplacement": null,
+            "isRequired": false,
+            "isSwitch": false,
+            "isUri": false,
+            "allowMultipleValues": false
+          },
+          {
+            "name": "--forceUploadAll",
+            "alias": "-f",
+            "help": "Upload all Power Pages website content to the current Dataverse environment.",
+            "deprecated": null,
+            "deprecatedArgumentReplacement": null,
+            "isRequired": false,
+            "isSwitch": true,
+            "isUri": false,
+            "allowMultipleValues": false
+          },
+          {
+            "name": "--modelVersion",
+            "alias": "-mv",
+            "help": "Power Pages website data model version to upload.",
+            "deprecated": null,
+            "deprecatedArgumentReplacement": null,
+            "isRequired": false,
+            "isSwitch": false,
+            "isUri": false,
+            "allowMultipleValues": false
+          }
+        ]
+      },
+      {
+        "name": "bootstrap-migrate",
+        "help": "Migrates HTML code from bootstrap V3 to V5.",
+        "arguments": [
+          {
+            "name": "--path",
+            "alias": "-p",
+            "help": "Path of website content.",
+            "deprecated": null,
+            "deprecatedArgumentReplacement": null,
+            "isRequired": true,
             "isSwitch": false,
             "isUri": false,
             "allowMultipleValues": false
@@ -5107,7 +5314,7 @@
     ]
   },
   {
-    "name": "tests",
+    "name": "test",
     "help": "(Preview) Execution of automated tests for a Power App",
     "verbs": [
       {

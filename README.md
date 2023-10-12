@@ -1,6 +1,6 @@
 # Power Platform CLI - Code Completion
 
-Add Code Completion on Power Platform CLI using PowerShell. PAC [JSON](./PowerPlatformCLIAutoComplete/pac.doc.json) file is from pac release [1.25.5](https://www.nuget.org/packages/Microsoft.PowerApps.CLI/1.25.5) released on 23-July-2023.
+Add Code Completion on Power Platform CLI using PowerShell. PAC [JSON](./PowerPlatformCLIAutoComplete/pac.doc.json) file is from pac release [1.27.6](https://www.nuget.org/packages/Microsoft.PowerApps.CLI/1.27.6) released on 20-September-2023.
 
 # Installation
 
