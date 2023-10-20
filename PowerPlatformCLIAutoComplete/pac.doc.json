@@ -196,6 +196,17 @@
             "isSwitch": false,
             "isUri": false,
             "allowMultipleValues": false
+          },
+          {
+            "name": "--user",
+            "alias": "-u",
+            "help": "Object ID or user principal name (UPN) of Microsoft Entra ID user to be assigned to the environment.",
+            "deprecated": null,
+            "deprecatedArgumentReplacement": null,
+            "isRequired": false,
+            "isSwitch": false,
+            "isUri": false,
+            "allowMultipleValues": false
           }
         ]
       },
@@ -1531,6 +1542,73 @@
     "help": "Operating with Power Apps .msapp files",
     "verbs": [
       {
+        "name": "download",
+        "help": "Download canvas app as .msapp file",
+        "arguments": [
+          {
+            "name": "--name",
+            "alias": "-n",
+            "help": "Canvas app exact, partial name, or App ID",
+            "deprecated": null,
+            "deprecatedArgumentReplacement": null,
+            "isRequired": true,
+            "isSwitch": false,
+            "isUri": false,
+            "allowMultipleValues": false
+          },
+          {
+            "name": "--file-name",
+            "alias": "-f",
+            "help": "File name (usually with .msapp extension). If not provided file is saved in current directory with 'appname'.msapp",
+            "deprecated": null,
+            "deprecatedArgumentReplacement": null,
+            "isRequired": false,
+            "isSwitch": false,
+            "isUri": false,
+            "allowMultipleValues": false
+          },
+          {
+            "name": "--overwrite",
+            "alias": "-o",
+            "help": "Allow file overwrite",
+            "deprecated": null,
+            "deprecatedArgumentReplacement": null,
+            "isRequired": false,
+            "isSwitch": true,
+            "isUri": false,
+            "allowMultipleValues": false
+          },
+          {
+            "name": "--environment",
+            "alias": "-env",
+            "help": "Environment (ID, org ID, url, unique name, or partial name).",
+            "deprecated": null,
+            "deprecatedArgumentReplacement": null,
+            "isRequired": false,
+            "isSwitch": false,
+            "isUri": false,
+            "allowMultipleValues": false
+          }
+        ]
+      },
+      {
+        "name": "list",
+        "help": "List canvas apps",
+        "arguments": [
+          {
+            "name": "--environment",
+            "alias": "-env",
+            "help": "Environment (ID, org ID, url, unique name, or partial name).",
+            "deprecated": null,
+            "deprecatedArgumentReplacement": null,
+            "isRequired": false,
+            "isSwitch": false,
+            "isUri": false,
+            "allowMultipleValues": false
+          }
+        ]
+      },
+      {
         "name": "pack",
         "help": "(Preview) Pack sources into an msapp file",
         "arguments": [
@@ -1640,11 +1718,11 @@
   },
   {
     "name": "catalog",
-    "help": "(Preview) Commands for working with Catalog in Power Platform",
+    "help": "Commands for working with Catalog in Power Platform",
     "verbs": [
       {
         "name": "list",
-        "help": "(Preview) List all published catalog items from the current Dataverse organization.",
+        "help": "List all published catalog items from the current Dataverse organization.",
         "arguments": [
           {
             "name": "--catalog-item-name",
@@ -1683,7 +1761,7 @@
       },
       {
         "name": "submit",
-        "help": "(Preview) Submit catalog approval request.",
+        "help": "Submit catalog approval request.",
         "argumentRelations": [
           {
             "RelationType": "MutuallyExclusiveOrNeither",
@@ -1742,7 +1820,7 @@
       },
       {
         "name": "install",
-        "help": "(Preview) Install a catalog item to the target environment.",
+        "help": "Install a catalog item to the target environment.",
         "arguments": [
           {
             "name": "--catalog-item-id",
@@ -1804,7 +1882,7 @@
       },
       {
         "name": "status",
-        "help": "(Preview) Get status of the catalog install/submit request.",
+        "help": "Get status of the catalog install/submit request.",
         "arguments": [
           {
             "name": "--tracking-id",
@@ -1834,7 +1912,7 @@
       },
       {
         "name": "update",
-        "help": "(Preview) Update settings for the catalog.",
+        "help": "Update settings for the catalog.",
         "arguments": [
           {
             "name": "--path",
@@ -1851,7 +1929,7 @@
       },
       {
         "name": "create-submission",
-        "help": "(Preview) Create catalog submission document. Note: This command will be removed in a future release.",
+        "help": "Create catalog submission document. Note: This command will be removed in a future release.",
         "arguments": [
           {
             "name": "--path",
@@ -1870,11 +1948,11 @@
   },
   {
     "name": "connection",
-    "help": "(Preview) Commands for working with Dataverse connection.",
+    "help": "Commands for working with Dataverse connection.",
     "verbs": [
       {
         "name": "create",
-        "help": "(Preview) Create new Dataverse connection.",
+        "help": "Create new Dataverse connection.",
         "arguments": [
           {
             "name": "--tenant-id",
@@ -1935,7 +2013,7 @@
       },
       {
         "name": "delete",
-        "help": "(Preview) Delete Dataverse connection.",
+        "help": "Delete Dataverse connection.",
         "arguments": [
           {
             "name": "--connection-id",
@@ -1963,7 +2041,7 @@
       },
       {
         "name": "list",
-        "help": "(Preview) List all Connections.",
+        "help": "List all Connections.",
         "arguments": [
           {
             "name": "--environment",
@@ -1980,7 +2058,7 @@
       },
       {
         "name": "update",
-        "help": "(Preview) Update Dataverse connection.",
+        "help": "Update Dataverse connection.",
         "arguments": [
           {
             "name": "--tenant-id",
@@ -2043,11 +2121,11 @@
   },
   {
     "name": "connector",
-    "help": "(Preview) Commands for working with Power Platform Connectors",
+    "help": "Commands for working with Power Platform Connectors",
     "verbs": [
       {
         "name": "list",
-        "help": "(Preview) List the Connectors registered in Dataverse.",
+        "help": "List the Connectors registered in Dataverse.",
         "arguments": [
           {
             "name": "--environment",
@@ -2064,7 +2142,7 @@
       },
       {
         "name": "init",
-        "help": "(Preview) Initializes a new API Properties file for a Connector.",
+        "help": "Initializes a new API Properties file for a Connector.",
         "arguments": [
           {
             "name": "--connection-template",
@@ -2116,7 +2194,7 @@
       },
       {
         "name": "create",
-        "help": "(Preview) Creates a new row in the Connector table in Dataverse.",
+        "help": "Creates a new row in the Connector table in Dataverse.",
         "argumentRelations": [
           {
             "RelationType": "MutuallyExclusive",
@@ -2236,7 +2314,7 @@
       },
       {
         "name": "download",
-        "help": "(Preview) Download a Connector's OpenApiDefinition and API Properties file",
+        "help": "Download a Connector's OpenApiDefinition and API Properties file",
         "arguments": [
           {
             "name": "--connector-id",
@@ -2276,7 +2354,7 @@
       },
       {
         "name": "update",
-        "help": "(Preview) Updates a Connector Entity in Dataverse.",
+        "help": "Updates a Connector Entity in Dataverse.",
         "argumentRelations": [
           {
             "RelationType": "MutuallyExclusive",
@@ -2604,6 +2682,17 @@
             "allowMultipleValues": false
           },
           {
+            "name": "--connection-count",
+            "alias": "-c",
+            "help": "Number of parallel connections to use during import. Default: 5",
+            "deprecated": null,
+            "deprecatedArgumentReplacement": null,
+            "isRequired": false,
+            "isSwitch": false,
+            "isUri": false,
+            "allowMultipleValues": false
+          },
+          {
             "name": "--verbose",
             "alias": "-v",
             "help": "Output more diagnostic information during data import/export",
@@ -2883,7 +2972,7 @@
       },
       {
         "name": "fetch",
-        "help": "(Preview) Performs FetchXML query against Dataverse",
+        "help": "Performs FetchXML query against Dataverse",
         "argumentRelations": [
           {
             "RelationType": "MutuallyExclusive",
@@ -3483,7 +3572,7 @@
             "name": "--force-import",
             "alias": "-f",
             "help": "Force a full update of the control as part of a temporary solution",
-            "deprecated": null,
+            "deprecated": "Ignored",
             "deprecatedArgumentReplacement": null,
             "isRequired": false,
             "isSwitch": true,
@@ -3798,6 +3887,44 @@
             "deprecatedArgumentReplacement": null,
             "isRequired": false,
             "isSwitch": false,
+            "isUri": false,
+            "allowMultipleValues": false
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "name": "power-fx",
+    "help": "(Preview) Commands for working with Power Fx",
+    "verbs": [
+      {
+        "name": "repl",
+        "help": "(Preview) Launch interactive Power Fx Read-Eval-Print Loop"
+      },
+      {
+        "name": "run",
+        "help": "(Preview) Run a file of Power Fx instructions",
+        "arguments": [
+          {
+            "name": "--file",
+            "alias": "-f",
+            "help": "Path of file to execute",
+            "deprecated": null,
+            "deprecatedArgumentReplacement": null,
+            "isRequired": true,
+            "isSwitch": false,
+            "isUri": false,
+            "allowMultipleValues": false
+          },
+          {
+            "name": "--echo",
+            "alias": "-e",
+            "help": "True if input commands should echo back to output",
+            "deprecated": null,
+            "deprecatedArgumentReplacement": null,
+            "isRequired": false,
+            "isSwitch": true,
             "isUri": false,
             "allowMultipleValues": false
           }
@@ -4190,6 +4317,15 @@
       {
         "name": "import",
         "help": "Import the solution into Dataverse.",
+        "argumentRelations": [
+          {
+            "RelationType": "MutuallyExclusiveOrNeither",
+            "argument1": "--import-as-holding",
+            "argument2": "--stage-and-upgrade",
+            "argument3": null,
+            "areSwitchArguments": false
+          }
+        ],
         "arguments": [
           {
             "name": "--path",
@@ -4239,6 +4375,17 @@
             "name": "--import-as-holding",
             "alias": "-h",
             "help": "Import the solution as a holding solution.",
+            "deprecated": null,
+            "deprecatedArgumentReplacement": null,
+            "isRequired": false,
+            "isSwitch": true,
+            "isUri": false,
+            "allowMultipleValues": false
+          },
+          {
+            "name": "--stage-and-upgrade",
+            "alias": "-up",
+            "help": "Import and upgrade the solution.",
             "deprecated": null,
             "deprecatedArgumentReplacement": null,
             "isRequired": false,
@@ -4547,7 +4694,7 @@
       },
       {
         "name": "upgrade",
-        "help": "Option to stage the Dataverse solution for upgrade",
+        "help": "Apply solution upgrade",
         "arguments": [
           {
             "name": "--solution-name",
@@ -5551,6 +5698,272 @@
             "name": "--bot-id",
             "alias": "-id",
             "help": "The ID of a Virtual Agent (Chatbot).",
+            "deprecated": null,
+            "deprecatedArgumentReplacement": null,
+            "isRequired": true,
+            "isSwitch": false,
+            "isUri": false,
+            "allowMultipleValues": false
+          }
+        ]
+      },
+      {
+        "name": "extract-translation",
+        "help": "Extracts file containing localized content for one or more bots.",
+        "arguments": [
+          {
+            "name": "--environment",
+            "alias": "-env",
+            "help": "The target Environment ID or URL. The default value is the environment of your currently active Dataverse Auth Profile.",
+            "deprecated": null,
+            "deprecatedArgumentReplacement": null,
+            "isRequired": false,
+            "isSwitch": false,
+            "isUri": false,
+            "allowMultipleValues": false
+          },
+          {
+            "name": "--sourcedir",
+            "alias": "-src",
+            "help": "Source solution directory. When specified, will ignore the connected environment when looking for bots and instead look for content in the solution folder.",
+            "deprecated": null,
+            "deprecatedArgumentReplacement": null,
+            "isRequired": false,
+            "isSwitch": false,
+            "isUri": false,
+            "allowMultipleValues": false
+          },
+          {
+            "name": "--bot",
+            "alias": "-id",
+            "help": "The Chatbot ID or schema name (unique name found in Bot Details or file name in solution explorer).",
+            "deprecated": null,
+            "deprecatedArgumentReplacement": null,
+            "isRequired": false,
+            "isSwitch": false,
+            "isUri": false,
+            "allowMultipleValues": false
+          },
+          {
+            "name": "--outdir",
+            "alias": null,
+            "help": "The output directory to write to.",
+            "deprecated": null,
+            "deprecatedArgumentReplacement": null,
+            "isRequired": false,
+            "isSwitch": false,
+            "isUri": false,
+            "allowMultipleValues": false
+          },
+          {
+            "name": "--format",
+            "alias": null,
+            "help": "The file format in which to write localized files, either 'resx' or 'json'. The default is 'resx'.",
+            "deprecated": null,
+            "deprecatedArgumentReplacement": null,
+            "isRequired": false,
+            "isSwitch": false,
+            "isUri": false,
+            "allowMultipleValues": false
+          },
+          {
+            "name": "--all",
+            "alias": "-a",
+            "help": "Write localization files for all supported languages. By default, only the primary language is written.",
+            "deprecated": null,
+            "deprecatedArgumentReplacement": null,
+            "isRequired": false,
+            "isSwitch": true,
+            "isUri": false,
+            "allowMultipleValues": false
+          },
+          {
+            "name": "--overwrite",
+            "alias": "-o",
+            "help": "Allow overwrite of the output data file if it already exists.",
+            "deprecated": null,
+            "deprecatedArgumentReplacement": null,
+            "isRequired": false,
+            "isSwitch": true,
+            "isUri": false,
+            "allowMultipleValues": false
+          }
+        ]
+      },
+      {
+        "name": "merge-translation",
+        "help": "Merge files containing localized content for one or more bots.",
+        "arguments": [
+          {
+            "name": "--environment",
+            "alias": "-env",
+            "help": "The target Environment ID or URL. The default value is the environment of your currently active Dataverse Auth Profile.",
+            "deprecated": null,
+            "deprecatedArgumentReplacement": null,
+            "isRequired": false,
+            "isSwitch": false,
+            "isUri": false,
+            "allowMultipleValues": false
+          },
+          {
+            "name": "--sourcedir",
+            "alias": "-src",
+            "help": "Source solution directory. When specified, will ignore the connected environment when looking for bots and instead look for content in the solution folder.",
+            "deprecated": null,
+            "deprecatedArgumentReplacement": null,
+            "isRequired": false,
+            "isSwitch": false,
+            "isUri": false,
+            "allowMultipleValues": false
+          },
+          {
+            "name": "--file",
+            "alias": "-f",
+            "help": "The list of files that contain translations. Glob patterns are supported.",
+            "deprecated": null,
+            "deprecatedArgumentReplacement": null,
+            "isRequired": false,
+            "isSwitch": false,
+            "isUri": false,
+            "allowMultipleValues": false
+          },
+          {
+            "name": "--whatif",
+            "alias": null,
+            "help": "Does not execute the command, but outputs the details of what would happen.",
+            "deprecated": null,
+            "deprecatedArgumentReplacement": null,
+            "isRequired": false,
+            "isSwitch": true,
+            "isUri": false,
+            "allowMultipleValues": false
+          },
+          {
+            "name": "--verbose",
+            "alias": null,
+            "help": "Output more diagnostic information during data import/export",
+            "deprecated": null,
+            "deprecatedArgumentReplacement": null,
+            "isRequired": false,
+            "isSwitch": true,
+            "isUri": false,
+            "allowMultipleValues": false
+          },
+          {
+            "name": "--solution",
+            "alias": "-s",
+            "help": "Name of the solution.",
+            "deprecated": null,
+            "deprecatedArgumentReplacement": null,
+            "isRequired": false,
+            "isSwitch": false,
+            "isUri": false,
+            "allowMultipleValues": false
+          }
+        ]
+      },
+      {
+        "name": "extract-template",
+        "help": "Extracts a template file from an existing bot in an environment.",
+        "arguments": [
+          {
+            "name": "--environment",
+            "alias": "-env",
+            "help": "The target Environment ID or URL. The default value is the environment of your currently active Dataverse Auth Profile.",
+            "deprecated": null,
+            "deprecatedArgumentReplacement": null,
+            "isRequired": false,
+            "isSwitch": false,
+            "isUri": false,
+            "allowMultipleValues": false
+          },
+          {
+            "name": "--bot",
+            "alias": "-id",
+            "help": "The Chatbot ID or schema name (unique name found in Bot Details or file name in solution explorer).",
+            "deprecated": null,
+            "deprecatedArgumentReplacement": null,
+            "isRequired": true,
+            "isSwitch": false,
+            "isUri": false,
+            "allowMultipleValues": false
+          },
+          {
+            "name": "--templateFileName",
+            "alias": null,
+            "help": "Location of the yaml file to write the bot template to.",
+            "deprecated": null,
+            "deprecatedArgumentReplacement": null,
+            "isRequired": true,
+            "isSwitch": false,
+            "isUri": false,
+            "allowMultipleValues": false
+          },
+          {
+            "name": "--overwrite",
+            "alias": "-o",
+            "help": "Allow overwrite of the output data file if it already exists.",
+            "deprecated": null,
+            "deprecatedArgumentReplacement": null,
+            "isRequired": false,
+            "isSwitch": true,
+            "isUri": false,
+            "allowMultipleValues": false
+          }
+        ]
+      },
+      {
+        "name": "create",
+        "help": "Creates a new bot using an existing template file as the reference.",
+        "arguments": [
+          {
+            "name": "--environment",
+            "alias": "-env",
+            "help": "The target Environment ID or URL. The default value is the environment of your currently active Dataverse Auth Profile.",
+            "deprecated": null,
+            "deprecatedArgumentReplacement": null,
+            "isRequired": false,
+            "isSwitch": false,
+            "isUri": false,
+            "allowMultipleValues": false
+          },
+          {
+            "name": "--schemaName",
+            "alias": null,
+            "help": "The schema name (unique name) of the new bot.",
+            "deprecated": null,
+            "deprecatedArgumentReplacement": null,
+            "isRequired": true,
+            "isSwitch": false,
+            "isUri": false,
+            "allowMultipleValues": false
+          },
+          {
+            "name": "--templateFileName",
+            "alias": null,
+            "help": "Source yaml file containing the bot template that was extracted using the extract-template command.",
+            "deprecated": null,
+            "deprecatedArgumentReplacement": null,
+            "isRequired": true,
+            "isSwitch": false,
+            "isUri": false,
+            "allowMultipleValues": false
+          },
+          {
+            "name": "--displayName",
+            "alias": null,
+            "help": "The display name of the new bot",
+            "deprecated": null,
+            "deprecatedArgumentReplacement": null,
+            "isRequired": true,
+            "isSwitch": false,
+            "isUri": false,
+            "allowMultipleValues": false
+          },
+          {
+            "name": "--solution",
+            "alias": "-s",
+            "help": "Name of the solution.",
             "deprecated": null,
             "deprecatedArgumentReplacement": null,
             "isRequired": true,
