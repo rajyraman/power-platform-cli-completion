@@ -69,6 +69,15 @@
       {
         "name": "create",
         "help": "Creates a Dataverse instance in your tenant.",
+        "argumentRelations": [
+          {
+            "RelationType": "MutuallyExclusiveOrNeither",
+            "argument1": "--security-group-id",
+            "argument2": "--team-id",
+            "argument3": null,
+            "areSwitchArguments": false
+          }
+        ],
         "arguments": [
           {
             "name": "--name",
@@ -175,16 +184,16 @@
             "allowMultipleValues": false
           },
           {
-            "name": "--team-id",
-            "alias": "-tid",
-            "help": "Team ID as Guid",
+            "name": "--security-group-id",
+            "alias": "-sgid",
+            "help": "Microsoft Entra ID Security Group Id or Microsoft 365 Group Id (required for Teams environment).",
             "deprecated": null,
             "deprecatedArgumentReplacement": null,
             "isRequired": false,
             "isSwitch": false,
             "isUri": false,
             "allowMultipleValues": false,
-            "RegexHelp": "The Team Id must be a valid Guid."
+            "RegexHelp": "The Security Group Id must be a valid Guid."
           },
           {
             "name": "--max-async-wait-time",
@@ -1091,6 +1100,50 @@
             "allowMultipleValues": false
           }
         ]
+      },
+      {
+        "name": "application",
+        "help": "Work with Microsoft Entra ID applications.",
+        "verbs": [
+          {
+            "name": "list",
+            "help": "List Microsoft Entra ID applications registered under your tenant."
+          },
+          {
+            "name": "register",
+            "help": "Register Microsoft Entra ID application with your tenant.",
+            "arguments": [
+              {
+                "name": "--application-id",
+                "alias": "-id",
+                "help": "Application Id",
+                "deprecated": null,
+                "deprecatedArgumentReplacement": null,
+                "isRequired": true,
+                "isSwitch": false,
+                "isUri": false,
+                "allowMultipleValues": false
+              }
+            ]
+          },
+          {
+            "name": "unregister",
+            "help": "Unregister Microsoft Entra ID application from your tenant.",
+            "arguments": [
+              {
+                "name": "--application-id",
+                "alias": "-id",
+                "help": "Application Id",
+                "deprecated": null,
+                "deprecatedArgumentReplacement": null,
+                "isRequired": true,
+                "isSwitch": false,
+                "isUri": false,
+                "allowMultipleValues": false
+              }
+            ]
+          }
+        ]
       }
     ]
   },
@@ -1544,6 +1597,15 @@
       {
         "name": "download",
         "help": "Download canvas app as .msapp file",
+        "argumentRelations": [
+          {
+            "RelationType": "MutuallyExclusiveOrNeither",
+            "argument1": "--file-name",
+            "argument2": "--extract-to-directory",
+            "argument3": null,
+            "areSwitchArguments": false
+          }
+        ],
         "arguments": [
           {
             "name": "--name",
@@ -1560,6 +1622,17 @@
             "name": "--file-name",
             "alias": "-f",
             "help": "File name (usually with .msapp extension). If not provided file is saved in current directory with 'appname'.msapp",
+            "deprecated": null,
+            "deprecatedArgumentReplacement": null,
+            "isRequired": false,
+            "isSwitch": false,
+            "isUri": false,
+            "allowMultipleValues": false
+          },
+          {
+            "name": "--extract-to-directory",
+            "alias": "-d",
+            "help": "Directory name to extract canvas app to",
             "deprecated": null,
             "deprecatedArgumentReplacement": null,
             "isRequired": false,
@@ -3380,7 +3453,18 @@
             "help": "Path to a package dll or zip file with a package.",
             "deprecated": null,
             "deprecatedArgumentReplacement": null,
-            "isRequired": true,
+            "isRequired": false,
+            "isSwitch": false,
+            "isUri": false,
+            "allowMultipleValues": false
+          },
+          {
+            "name": "--solution",
+            "alias": "-sz",
+            "help": "Path to the Dataverse solution file. The file must be a compressed ZIP or CAB file.",
+            "deprecated": null,
+            "deprecatedArgumentReplacement": null,
+            "isRequired": false,
             "isSwitch": false,
             "isUri": false,
             "allowMultipleValues": false
@@ -3540,6 +3624,22 @@
       {
         "name": "push",
         "help": "Import the Power Apps component framework project into the current Dataverse organization",
+        "argumentRelations": [
+          {
+            "RelationType": "MutuallyExclusiveOrNeither",
+            "argument1": "--solution-unique-name",
+            "argument2": "--interactive",
+            "argument3": null,
+            "areSwitchArguments": false
+          },
+          {
+            "RelationType": "MutuallyExclusiveOrNeither",
+            "argument1": "--solution-unique-name",
+            "argument2": "--publisher-prefix",
+            "argument3": null,
+            "areSwitchArguments": false
+          }
+        ],
         "arguments": [
           {
             "name": "--publisher-prefix",
@@ -3554,6 +3654,17 @@
             "maxLength": 8,
             "allowMultipleValues": false,
             "RegexHelp": "The prefix must be 2 to 8 characters long, can only consist of alpha-numerics, must start with a letter, and can't start with 'mscrm'."
+          },
+          {
+            "name": "--solution-unique-name",
+            "alias": null,
+            "help": "The unique name of the solution to add the component to.",
+            "deprecated": null,
+            "deprecatedArgumentReplacement": null,
+            "isRequired": false,
+            "isSwitch": false,
+            "isUri": false,
+            "allowMultipleValues": false
           },
           {
             "name": "--verbosity",
